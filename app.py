@@ -14,6 +14,8 @@ students_data = [
     {"name": "Regasa", "gender": "Male", "gpa": 0.5},
     {"name": "Demekech", "gender": "Female", "gpa": 2.7},
     {"name": "Alemitu", "gender": "Female", "gpa": 1.4},
+    {"name": "zelalem", "gender": "Male", "gpa": 3.4},
+    {"name": "abel", "gender": "Male", "gpa": 2.9},
 ]
 
 # function to generate diagrams
@@ -33,10 +35,12 @@ def generate_diagrams():
     gender_count = {"Male": 0, "Female": 0}
     for student in students_data:
         gender_count[student["gender"]] += 1
-    plt.bar(gender_count.keys(), gender_count.values(), color=['blue', 'pink'])
+    labels = list(gender_count.keys())
+    sizes = list(gender_count.values())
+    colors = ['skyblue', 'pink']
+    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
     plt.title("Gender Distribution")
-    plt.xlabel("Gender")
-    plt.ylabel("Count")
+    plt.axis('equal')  # Equal aspect ratio ensures the pie chart is a circle
     plt.savefig("static/diagrams/gender_chart.png")
     plt.close()
 

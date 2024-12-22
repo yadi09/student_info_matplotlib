@@ -5,36 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student GPA App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- <link rel="stylesheet" href="../static/styles.css"> -->
 </head>
 
 <body>
-    <h1>Student GPA App</h1>
+    <div class="container">
+        <h1>Student GPA App</h1>
 
-    <h2>Diagrams</h2>
-    <div>
-        <img src="{{ url_for('static', filename='diagrams/gpa_chart.png') }}" alt="GPA Chart">
-        <img src="{{ url_for('static', filename='diagrams/gender_chart.png') }}" alt="Gender Chart">
+        <h2>Diagrams</h2>
+        <div class="diagrams">
+            <img src="{{ url_for('static', filename='diagrams/gpa_chart.png') }}" alt="GPA Chart">
+            <img src="{{ url_for('static', filename='diagrams/gender_chart.png') }}" alt="Gender Chart">
+            <!-- <img src="../static/diagrams/gpa_chart.png">
+            <img src="../static/diagrams/gender_chart.png"> -->
+        </div>
+
+        <h2 class="h2">Student List</h2>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>GPA</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.gpa }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a class="add-button" href="{{ url_for('add_student') }}">Add New Student</a>
+        <hr>
+        <P>Developed BY <a class="yadi" href="https://github.com/yadi09/student_info_matplotlib/">YADAMZER TEREFE</a>
+        </P>
     </div>
-
-    <h2>Student List</h2>
-    <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>GPA</th>
-        </tr>
-        {% for student in students %}
-        <tr>
-            <td>{{ student.name }}</td>
-            <td>{{ student.gender }}</td>
-            <td>{{ student.gpa }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-    <a href="{{ url_for('add_student') }}">Add New Student</a>
-    <hr>
-    <P>Developed BY <a href="https://github.com/yadi09/student_info_matplotlib/">YADAMZER TEREFE</a></P>
 </body>
 
 </html>
