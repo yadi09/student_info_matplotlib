@@ -30,6 +30,7 @@ h1 {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
+    flex-wrap: wrap;
 }
 
 .diagrams img {
