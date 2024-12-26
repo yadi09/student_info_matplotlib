@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for # type: ignore
 import matplotlib.pyplot as plt
 import os
 
@@ -35,12 +35,12 @@ def generate_diagrams():
     gender_count = {"Male": 0, "Female": 0}
     for student in students_data:
         gender_count[student["gender"]] += 1
-    labels = list(gender_count.keys())
-    sizes = list(gender_count.values())
-    colors = ['skyblue', 'pink']
-    plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
+    genders = list(gender_count.keys())
+    totals = list(gender_count.values())
+    print("The", genders[0], "total is:", totals[0], "And The", genders[1], "total is:", totals[1])
+    colors = ['green', 'yellow']
+    plt.pie(totals, labels=genders, colors=colors, autopct='%1.1f%%')
     plt.title("Gender Distribution")
-    plt.axis('equal')  # Equal aspect ratio ensures the pie chart is a circle
     plt.savefig("static/diagrams/gender_chart.png")
     plt.close()
 

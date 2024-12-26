@@ -13,14 +13,14 @@
     <h1>Add a New Student</h1>
     <form method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" name="name" required><br>
         <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
+        <select name="gender" required>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
         </select><br>
         <label for="gpa">GPA:</label>
-        <input type="number" id="gpa" name="gpa" step="0.1" min="0" max="4" required><br>
+        <input type="number" name="gpa" step="0.1" min="0" max="4" required><br>
         <button type="submit">Add Student</button>
     </form>
     <a href="{{ url_for('index') }}">Back to Home</a>
