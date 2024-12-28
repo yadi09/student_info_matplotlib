@@ -65,4 +65,3 @@ if __name__ == '__main__':
     if not os.path.exists("static/diagrams"):
         os.makedirs("static/diagrams")
     app.run(debug=True)
-
